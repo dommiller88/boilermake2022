@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { Center, Box, NativeBaseProvider } from 'native-base';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
@@ -16,7 +16,18 @@ const stylesLogo = StyleSheet.create({
 
 export default function Home() {
   return (
-    <View style={styles.container}>
+    <Center flex={1} px="3">
+        <Box
+        bg="primary.500"
+        _text={{
+          fontSize: "md",
+          fontWeight: "medium",
+          color: "warmGray.50",
+          letterSpacing: "lg",
+        }}
+      > Hello</Box>
+    </Center>
+    /*<View style={styles.container}>
       <Image
         style={stylesLogo.logo}
         resizeMode='contain'
@@ -24,9 +35,13 @@ export default function Home() {
       />
       <Text>Open up yo butt to start working on your app!</Text>
       <StatusBar style="auto" />
-    </View>
+    </View>*/
   );
 }
+
+/*
+
+*/
 
 const styles = StyleSheet.create({
   container: {
