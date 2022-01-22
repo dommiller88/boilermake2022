@@ -15,16 +15,6 @@ export default function App() {
             </Routes>
         </NativeRouter>
     </NativeBaseProvider>
-
-    /*<NativeBaseProvider>
-        <NativeRouter>
-            <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route path="/map" element={<Map />} />
-                <Route path="*" component={<NotFound />} />
-            </Routes>
-        </NativeRouter>
-    </NativeBaseProvider>*/
     
   );
 }

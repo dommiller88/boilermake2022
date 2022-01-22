@@ -17,25 +17,13 @@ const stylesLogo = StyleSheet.create({
 export default function Home() {
   return (
     <Center flex={1} px="3">
-        <Box
-        bg="primary.500"
-        _text={{
-          fontSize: "md",
-          fontWeight: "medium",
-          color: "warmGray.50",
-          letterSpacing: "lg",
-        }}
-      > Hello</Box>
-    </Center>
-    /*<View style={styles.container}>
-      <Image
+        <Image
         style={stylesLogo.logo}
         resizeMode='contain'
         source={require('../assets/openspace.png')}
-      />
-      <Text>Open up yo butt to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>*/
+        />
+    </Center>
+    
   );
 }
 
