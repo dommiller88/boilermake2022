@@ -46,10 +46,6 @@ export default async function Home() {
             borderColor: "coolGray.600",
             backgroundColor: "gray.700",
         }}
-        _web={{
-            shadow: 2,
-            borderWidth: 0,
-        }}
         _light={{
             backgroundColor: "gray.50",
         }}
@@ -60,7 +56,7 @@ export default async function Home() {
                     resizeMode='contain'
                     source={require('../assets/openspace.png')}
                 />
-                <Box _text={{fontSize: "md"}} m="4">Use openspace to find the best route to your classes and open study spaces for when you aren't in lecture!</Box>
+                <Box _text={{fontSize: "md", textAlign: "center"}} m="4">Use openspace to find the best route to your classes and open study spaces for when you aren't in lecture!</Box>
                 <Select
                     selectedValue={university}
                     width="100%"
@@ -72,11 +68,11 @@ export default async function Home() {
                     onValueChange={(itemValue) => setUniversity(itemValue)}
                 >
 
-                    <Select.Item label="Purdue University" value="ux" />
-                    <Select.Item label="Indiana University" value="web" />
-                    <Select.Item label="Michigan University" value="cross" />
-                    <Select.Item label="University of Illinois" value="ui" />
-                    <Select.Item label="Harvard University" value="backend" />
+                    <Select.Item label="Purdue University" value="pu" />
+                    <Select.Item label="Indiana University" value="iu" />
+                    <Select.Item label="Michigan University" value="mu" />
+                    <Select.Item label="University of Illinois" value="uiuc" />
+                    <Select.Item label="Harvard University" value="hu" />
                 </Select>
                 <Button 
                     size="lg"
