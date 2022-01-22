@@ -2,7 +2,6 @@ import * as React from 'react';
 import MapView from 'react-native-maps';
 import { StyleSheet, Text, Dimensions } from 'react-native';
 import { Marker } from 'react-native-maps';
-import { StyleSheet, Text, Dimensions } from 'react-native';
 import { Box, VStack, ZStack, Button, Center, Heading} from 'native-base';
 import { Link } from 'react-router-native';
 
