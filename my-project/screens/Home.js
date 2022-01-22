@@ -5,9 +5,9 @@ const { width, height } = Dimensions.get('window');
 
 const stylesLogo = StyleSheet.create({
     logo: {
-      width: width/1.2,
-      marginTop: -height/10,
-      marginBottom: -height/5
+      width: width/1.4,
+      marginTop: -height/5,
+      marginBottom: -height/10
     },
   });
 
@@ -19,7 +19,7 @@ export default function Home() {
     <Center flex={1} px="3">
         <Box
         maxW="lg"
-        h="90%"
+        h="85%"
         rounded="lg"
         overflow="hidden"
         borderColor="coolGray.200"
@@ -42,9 +42,10 @@ export default function Home() {
                     resizeMode='contain'
                     source={require('../assets/openspace.png')}
                 />
-                <Box _text={{fontSize: "lg"}}>Use openspace to find the best route to your classes and open study spaces for when you aren't in lecture!</Box>
+                <Box _text={{fontSize: "md"}} m="4">Use openspace to find the best route to your classes and open study spaces for when you aren't in lecture!</Box>
                 <Select
                     selectedValue={university}
+                    width="100%"
                     size="xl"
                     minWidth="200"
                     accessibilityLabel="Choose University"
