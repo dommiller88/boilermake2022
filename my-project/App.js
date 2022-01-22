@@ -1,14 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NativeBaseProvider, Box } from 'native-base';
-import { NativeRouter, Route, Link } from "react-router-native";
-import Home from './screens/Home.js';
+import { NativeRouter, Route, Routes, Link } from "react-router-native";
+import { Home, Map, NotFound } from './screens';
 
 export default function App() {
   return (
-
     <NativeBaseProvider>
-        <Box>Hello world</Box>
+        <NativeRouter>
+            <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route path="/map" element={<Map />} />
+                <Route path="*" component={<NotFound />} />
+            </Routes>
+        </NativeRouter>
     </NativeBaseProvider>
     
   );

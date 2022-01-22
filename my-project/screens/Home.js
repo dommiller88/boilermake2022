@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { Center, Box, NativeBaseProvider } from 'native-base';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 import React, { useState, useEffect } from 'react';
@@ -35,17 +35,20 @@ export default async function Home() {
       }
   }, [])
   return (
-    <View style={styles.container}>
-      <Image
+    <Center flex={1} px="3">
+        <Image
         style={stylesLogo.logo}
         resizeMode='contain'
         source={require('../assets/openspace.png')}
-      />
-      <Text>Open up yo butt to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+        />
+    </Center>
+    
   );
 }
+
+/*
+
+*/
 
 const styles = StyleSheet.create({
   container: {
