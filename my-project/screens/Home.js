@@ -1,37 +1,27 @@
 import { Box, Select, Button, Center, VStack } from 'native-base';
+import { useState, useEffect } from 'react';
 import { StyleSheet, Image, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
-import React, { useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-
 
 const stylesLogo = StyleSheet.create({
     logo: {
       width: width/1.4,
       marginTop: -height/5,
-      marginBottom: -height/10
+      marginBottom: -height/7
     },
   });
 
-export default async function Home() {
-  // let disabled = false;
-  // let [university, setUniversity] = useState("");
-  // let routePage = '';
-  // useEffect(async () => {
-  //     try {
-  //         const value = await AsyncStorage.getItem('@stored');
-  //         if (value != null) {
-  //           routePage = 'Map';
-  //         }
-  //         else {
-  //           routePage = 'Courses';
-  //         }
-  //     }
-  //     catch(e) {
-  //         error.log(e);
-  //     }
-  // }, [])
+export default function Home() {
+    let [university, setUniversity] = useState("");
+    let [disabled, setDisabled] = useState(true);
+    useEffect(() => {
+      console.log(university);
+      if (university != "") {
+        setDisabled(false);
+      }
+    }, [university])
+
+
   return (
     <Center flex={1} px="3">
         <Box
@@ -45,10 +35,6 @@ export default async function Home() {
             borderColor: "coolGray.600",
             backgroundColor: "gray.700",
         }}
-        _web={{
-            shadow: 2,
-            borderWidth: 0,
-        }}
         _light={{
             backgroundColor: "gray.50",
         }}
@@ -59,7 +45,7 @@ export default async function Home() {
                     resizeMode='contain'
                     source={require('../assets/openspace.png')}
                 />
-                <Box _text={{fontSize: "md"}} m="4">Use openspace to find the best route to your classes and open study spaces for when you aren't in lecture!</Box>
+                <Box _text={{fontSize: "md", textAlign: "center"}} m="4">Use openspace to find the best route to your classes and open study spaces for when you aren't in lecture!</Box>
                 <Select
                     selectedValue={university}
                     width="100%"
@@ -71,11 +57,11 @@ export default async function Home() {
                     onValueChange={(itemValue) => setUniversity(itemValue)}
                 >
 
-                    <Select.Item label="Purdue University" value="ux" />
-                    <Select.Item label="Indiana University" value="web" />
-                    <Select.Item label="Michigan University" value="cross" />
-                    <Select.Item label="University of Illinois" value="ui" />
-                    <Select.Item label="Harvard University" value="backend" />
+                    <Select.Item label="Purdue University" value="pu" />
+                    <Select.Item label="Indiana University" value="iu" />
+                    <Select.Item label="Michigan University" value="mu" />
+                    <Select.Item label="University of Illinois" value="uiuc" />
+                    <Select.Item label="Harvard University" value="hu" />
                 </Select>
                 <Button 
                     size="lg"
@@ -96,7 +82,6 @@ export default async function Home() {
 }
 
 /*
-
 */
 
 const styles = StyleSheet.create({
