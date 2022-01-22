@@ -17,8 +17,6 @@ const stylesLogo = StyleSheet.create({
 export default function CourseInput() {
 
     let [courseInput, setCourseInput] = useState("");
-    let [courseInput, setCourseInput] = useState("");
-    let [courseInput, setCourseInput] = useState("");
     let [classes, setClasses] = useState({});
     let [currentClass, setCurrentClass] = useState("")
 

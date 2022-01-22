@@ -50,7 +50,7 @@ export default function Home() {
                         resizeMode='contain'
                         source={require('../assets/openspace.png')}
                     />
-                    <Box _text={{fontSize: "md", textAlign: "center"}} m="4">Use openspace to find the best route to your classes and open study spaces for when you aren't in lecture!</Box>
+                    <Box _text={{fontSize: "md", textAlign: "center"}} m="4">Use openspace to find the best open study spaces on campus! Enter your courses to find optimal study spots for the downtime you have between lecture.</Box>
                     <Select
                         selectedValue={university}
                         width="100%"
@@ -67,7 +67,7 @@ export default function Home() {
                         <Select.Item label="University of Illinois" value="uiuc" />
                         <Select.Item label="Harvard University" value="hu" />
                     </Select>
-                        <Link to="/map">
+                        <Link to="/courseinput">
                         <Button 
                             size="lg"
                             bgColor="dark.100"

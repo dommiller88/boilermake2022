@@ -8,6 +8,7 @@ import { Link } from 'react-router-native';
 export default function App(props) {
 
     const universityName = props.universityName;
+    const overlayWindowHeight = 250;
 
   return (
 
@@ -23,11 +24,11 @@ export default function App(props) {
       > 
       <Marker coordinate={{ latitude : 40.424175 , longitude : -86.914376 }} />
       </MapView>
-        <Box mt={styles.map.height - 180} bg="gray.50" borderColor="coolGray.200" width="full" height="180" rounded="lg" shadow={3}>
+        <Box mt={styles.map.height - overlayWindowHeight} bg="gray.50" borderColor="coolGray.200" width="full" height={overlayWindowHeight} rounded="lg" shadow={3}>
             <VStack space="3" alignItems="center" justifyContent="center">
                 <Heading m="5">Purdue University</Heading>
-                <Text size="10" m="10">See below for a map detailing how to get to your class</Text>
-                <Link to="/">
+                <Text size="lg" m="20" style={{textAlign: "center"}}>See above for a map detailing the study locations nearest to your classes</Text>
+                
                     <Button size="lg"
                             maxW="40%" size="lg"
                             bgColor="dark.100"
@@ -38,7 +39,9 @@ export default function App(props) {
                                 bg: 'dark.200',
                                 borderRadius: '4'
                             }}>Back</Button>
-                </Link>
+                <Box>
+                    <Link to="/"><Text>Go back</Text></Link>
+                </Box>
             </VStack>
         </Box>
     </ZStack>
