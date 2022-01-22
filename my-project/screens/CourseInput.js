@@ -1,6 +1,6 @@
 import { Center, Select, Button, Input, Box } from 'native-base';
 import { useState } from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { CourseForm } from '../components';
 import { Link } from 'react-router-native';
 
@@ -60,7 +60,13 @@ export default function CourseInput() {
                 backgroundColor: '#020202',
             }}
         >Submit Courses</Button>
-        <CourseForm />
+        <ScrollView>
+            <CourseForm />
+            <CourseForm />
+            <CourseForm />
+            <CourseForm />
+        </ScrollView>
+        
         <Link to="/map"><Box>Go to map</Box></Link>
 
     </Center>
