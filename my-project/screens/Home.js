@@ -1,5 +1,4 @@
 import { Box, Select, Button, Center, VStack } from 'native-base';
-import { useState } from 'react';
 import { StyleSheet, Image, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 import React, { useState, useEffect } from 'react';
@@ -16,23 +15,23 @@ const stylesLogo = StyleSheet.create({
   });
 
 export default async function Home() {
-  let disabled = false;
-  let [university, setUniversity] = useState("");
-  let routePage = '';
-  useEffect(async () => {
-      try {
-          const value = await AsyncStorage.getItem('@stored');
-          if (value != null) {
-            routePage = 'Map';
-          }
-          else {
-            routePage = 'Courses';
-          }
-      }
-      catch(e) {
-          error.log(e);
-      }
-  }, [])
+  // let disabled = false;
+  // let [university, setUniversity] = useState("");
+  // let routePage = '';
+  // useEffect(async () => {
+  //     try {
+  //         const value = await AsyncStorage.getItem('@stored');
+  //         if (value != null) {
+  //           routePage = 'Map';
+  //         }
+  //         else {
+  //           routePage = 'Courses';
+  //         }
+  //     }
+  //     catch(e) {
+  //         error.log(e);
+  //     }
+  // }, [])
   return (
     <Center flex={1} px="3">
         <Box
