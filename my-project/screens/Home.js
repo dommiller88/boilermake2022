@@ -1,6 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
+import React, { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 
 const stylesLogo = StyleSheet.create({
     container: {
@@ -14,7 +18,22 @@ const stylesLogo = StyleSheet.create({
     },
   });
 
-export default function Home() {
+export default async function Home() {
+  let routePage = '';
+  useEffect(async () => {
+      try {
+          const value = await AsyncStorage.getItem('@stored');
+          if (value != null) {
+            routePage = 'Map';
+          }
+          else {
+            routePage = 'Courses';
+          }
+      }
+      catch(e) {
+          error.log(e);
+      }
+  }, [])
   return (
     <View style={styles.container}>
       <Image
