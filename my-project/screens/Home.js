@@ -15,8 +15,9 @@ const stylesLogo = StyleSheet.create({
     },
   });
 
-<<<<<<< HEAD
 export default async function Home() {
+  let disabled = false;
+  let [university, setUniversity] = useState("");
   let routePage = '';
   useEffect(async () => {
       try {
@@ -32,12 +33,6 @@ export default async function Home() {
           error.log(e);
       }
   }, [])
-=======
-export default function Home() {
-    let disabled = false;
-    let [university, setUniversity] = useState("");
-
->>>>>>> c9f3a97da622e5f700e19535246ef3dca1ce6d4b
   return (
     <Center flex={1} px="3">
         <Box
