@@ -1,5 +1,5 @@
 import { Box, Select, Button, Center, VStack } from 'native-base';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { StyleSheet, Image, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
@@ -12,8 +12,15 @@ const stylesLogo = StyleSheet.create({
   });
 
 export default function Home() {
-    let disabled = false;
     let [university, setUniversity] = useState("");
+    let [disabled, setDisabled] = useState(true);
+    useEffect(() => {
+      console.log(university);
+      if (university != "") {
+        setDisabled(false);
+      }
+    }, [university])
+
 
   return (
     <Center flex={1} px="3">
