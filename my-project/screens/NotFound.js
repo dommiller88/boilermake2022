@@ -1,11 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { Box, Center } from 'native-base';
 
-export default function Home() {
+export default function NotFound() {
     return (
-      <View style={styles.container}>
-        <Text>Oops! Page not found</Text>
-        <StatusBar style="auto" />
-      </View>
+        <Center>
+            <Box>Oops! Page not found</Box>
+        </Center>
     );
   }
