@@ -1,11 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NativeBaseProvider, Box } from 'native-base';
 import { NativeRouter, Route, Link } from "react-router-native";
 import Home from './screens/Home.js';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+
+    <NativeBaseProvider>
+        <Box>Hello world</Box>
+    </NativeBaseProvider>
+    
+  );
+}
+
+/*
+<View style={styles.container}>
         <StatusBar style="auto" />
         <NativeRouter>
             <View>
@@ -15,8 +25,8 @@ export default function App() {
         </NativeRouter>
       <Home />
     </View>
-  );
-}
+
+*/
 
 const styles = StyleSheet.create({
   container: {

@@ -5,7 +5,7 @@ const { width, height } = Dimensions.get('window');
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text>Open up yo butt to start working on your app!</Text>
+      <Text>Bruh!</Text>
       <Image
         style={{width: 100, height: 100 }}
         source={require('../assets/openspace.png')}
