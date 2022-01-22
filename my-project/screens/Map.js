@@ -1,9 +1,7 @@
 import * as React from 'react';
 import MapView from 'react-native-maps';
-<<<<<<< Updated upstream
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, Dimensions } from 'react-native';
 import { Marker } from 'react-native-maps';
-=======
 import { StyleSheet, Text, Dimensions } from 'react-native';
 import { Box, VStack, ZStack, Button, Center, Heading} from 'native-base';
 import { Link } from 'react-router-native';
@@ -11,12 +9,11 @@ import { Link } from 'react-router-native';
 export default function App(props) {
 
     const universityName = props.universityName;
->>>>>>> Stashed changes
 
   return (
-<<<<<<< Updated upstream
-    <View style={styles.container}>
-      <MapView 
+
+    <ZStack>
+        <MapView 
         style={styles.map} 
         initialRegion={{
           latitude: 40.424175,
@@ -27,10 +24,6 @@ export default function App(props) {
       > 
       <Marker coordinate={{ latitude : 40.424175 , longitude : -86.914376 }} />
       </MapView>
-    </View>
-=======
-    <ZStack>
-        <MapView style={styles.map} />
         <Box mt={styles.map.height - 180} bg="gray.50" borderColor="coolGray.200" width="full" height="180" rounded="lg" shadow={3}>
             <VStack space="3" alignItems="center" justifyContent="center">
                 <Heading m="5">Purdue University</Heading>
@@ -51,7 +44,6 @@ export default function App(props) {
         </Box>
     </ZStack>
     
->>>>>>> Stashed changes
   );
 }
 
