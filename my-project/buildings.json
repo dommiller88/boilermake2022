@@ -593,7 +593,125 @@
 
     ],
     "Meal": [
-        
+        {
+            "Name": "Hillenbrand Dining Court",
+            "Location": [40.42761166987847, -86.92615554230238],
+            "Swipes": "All Day"
+        },
+        {
+            "Name": "Harrison Grill",
+            "Location": [40.42540064225781, -86.9262797269605],
+            "Swipes": "During Pop-Up Days"
+        },
+        {
+            "Name": "Earhardt Dining Court",
+            "Location": [40.42606373774758, -86.92369202804959],
+            "Swipes": "All Day"
+        },
+        {
+            "Name": "All American Dining Room",
+            "Location": [40.4322698001087, -86.91645399736136],
+            "Swipes": "Seasonally"
+        },
+        {
+            "Name": "Ford Dining Court",
+            "Location": [40.43272922263782, -86.91788373599049],
+            "Swipes": "All Day"
+        },
+        {
+            "Name": "Freshens",
+            "Location": [40.42891948264048, -86.91893002968237],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "Panera",
+            "Location": [40.42594796924257, -86.92159790530788],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "QDOBA",
+            "Location": [40.42594796924257, -86.92159790530788],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "Wiley Dining Court",
+            "Location": [40.42917592325897, -86.91908082064931]
+        },
+        {
+            "Name": "Jersey Mike's",
+            "Location": [40.42892701827159, -86.91784633599214],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "Chick Fil A",
+            "Location": [40.42892701827159, -86.91784633599214],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "Starbucks",
+            "Location": [40.428188032857896, -86.91902799736332],
+            "Swipes": "No"
+        },
+        {
+            "Name": "Windsor Dining Court",
+            "Location": [40.427506433636125, -86.91950359736362],
+            "Swipes": "All Day"
+        },
+        {
+            "Name": "1Bowl",
+            "Location": [40.426794901671244, -86.92190132804936],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "Sushi Boss",
+            "Location": [40.426794901671244, -86.92190132804936],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "Pete's Za",
+            "Location": [40.426794901671244, -86.92190132804936],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "Amelia's",
+            "Location": [40.43163533273605, -86.9129973746201],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "Lawson Grab and Go",
+            "Location": [40.42797174693649, -86.91494941325064],
+            "Swipes":"All Day"
+        },
+        {
+            "Name": "Cosi",
+            "Location": [40.42784467317448, -86.9153037847442],
+            "Swipes": "11-1"
+        },
+        {
+            "Name": "Saladworks",
+            "Location": [40.42847991317516, -86.91296092804849],
+            "Swipes": "No"
+        },
+        {
+            "Name": "Au Bon Pain",
+            "Location": [40.42818297465535, -86.9111099979081],
+            "Swipes": "No"
+        },
+        {
+            "Name": "Undergrounds Library",
+            "Location": [40.42481849717087, -86.91069304393748],
+            "Swipes": "No"
+        },
+        {
+            "Name": "Continuum Cafe",
+            "Location": [40.42416239893301, -86.9272419336772],
+            "Swipes": "No"
+        },
+        {
+            "Name": "Union Restaurants",
+            "Location": [40.42528932162301, -86.90996265079173],
+            "Swipes": "No"
+        }
     ]
 }
 
