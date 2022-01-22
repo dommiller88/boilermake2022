@@ -1,6 +1,5 @@
 import { Box, Center } from 'native-base';
 import { useState } from 'react';
-import { CourseInfoComplete, CourseInfoEntry } from './';
 
 export default function CourseInfoComplete(props) {
 

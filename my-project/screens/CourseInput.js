@@ -1,6 +1,9 @@
-import { Center, Select, Button, Input } from 'native-base';
+import { Center, Select, Button, Input, Box } from 'native-base';
 import { useState } from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
+import { CourseForm } from '../components';
+import { Link } from 'react-router-native';
+
 const { width, height } = Dimensions.get('window');
 
 const stylesLogo = StyleSheet.create({
@@ -20,7 +23,7 @@ export default function CourseInput() {
     let [classes, setClasses] = useState({});
     let [currentClass, setCurrentClass] = useState("")
 
-    fetch('https://api.purdue.io/odata/Courses?$expand=Classes($filter=Term/Code eq \'202220\';$expand=Sections($expand=Meetings))&$filter=Subject/Abbreviation eq \'CS\' and Number eq \'18000\'').then(response =>{
+    /*fetch('https://api.purdue.io/odata/Courses?$expand=Classes($filter=Term/Code eq \'202220\';$expand=Sections($expand=Meetings))&$filter=Subject/Abbreviation eq \'CS\' and Number eq \'18000\'').then(response =>{
         return response.json();
     }).then(rawdata =>{
         //console.log(rawdata);
@@ -35,16 +38,11 @@ export default function CourseInput() {
             console.log("--|---|--");
         }
         setClasses(data['value']);
-    })
+    })*/
 
   return (
     <Center flex={1} px="1">
-        <Input
-            placeholder="Input"
-            size="xl"
-            minWidth="200"
-        />
-        <Select
+        {/*<Select
             selectedValue={currentClass}
             size="xl"
             minWidth="200"
@@ -52,17 +50,19 @@ export default function CourseInput() {
             placeholder="Choose University"
             mt={1}
             onValueChange={(itemValue) => setCurrentClass(itemValue)}
-        >
-        {/* {classes.map((c) => (
+        > {classes.map((c) => (
             <Select.Item label={c} value="ux" />
-        ))} */}
-        </Select>
+        ))} 
+        </Select> */}
         <Button 
             size="lg"
             style={{
                 backgroundColor: '#020202',
             }}
-        >Enter Courses</Button>
+        >Submit Courses</Button>
+        <CourseForm />
+        <Link to="/map"><Box>Go to map</Box></Link>
+
     </Center>
     
   );
