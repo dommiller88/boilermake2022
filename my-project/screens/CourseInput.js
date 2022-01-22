@@ -2,7 +2,6 @@ import { Center, Select, Button, Input, Box } from 'native-base';
 import { useState } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { CourseForm } from '../components';
-import { Link } from 'react-router-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -67,7 +66,7 @@ export default function CourseInput() {
             <CourseForm />
         </ScrollView>
         
-        <Link to="/map"><Box>Go to map</Box></Link>
+        <Box>Go to map</Box>
 
     </Center>
     
