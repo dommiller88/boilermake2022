@@ -4,9 +4,9 @@ import { useState } from 'react';
 export default function CourseInfoEntry({changeComplete}) {
 
     // send entered data to form
-    // const handleSubmit = () => {
-    //     changeComplete();
-    // }
+    const handleSubmit = () => {
+       changeComplete();
+    }
 
     let [inputSubject, setInputSubject] = useState("");
     let [inputCourse, setInputCourse] = useState("");
@@ -14,13 +14,13 @@ export default function CourseInfoEntry({changeComplete}) {
     const handleInputSubject = (event) => setInputSubject(event.target.value);
     const handleInputCourse = (event) => setInputCourse(event.target.value);
 
-    const handleSubmit = () => {
+    /*const handleSubmit = () => {
         fetch(`https://api.purdue.io/odata/Courses?$expand=Classes($filter=Term/Code eq \'202220\';$expand=Sections($expand=Meetings))&$filter=Subject/Abbreviation eq \'${inputSubject}\' and Number eq \'${inputCourse}\'`).then(response =>{
             return response.json();
         }).then(rawdata =>{
             console.log(rawdata);
         })
-    }
+    }*/
 
     return (
         <Center flex={1}>

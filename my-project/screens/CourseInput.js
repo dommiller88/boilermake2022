@@ -72,9 +72,9 @@ export default function CourseInput({ navigation }) {
     return (
         <Center flex={1} px="1">
             <ScrollView>
-            <div>
-                {courseInputList.map(courseInputList => <div key={courseInputList}> {courseInputList} </div>)} 
-            </div>
+            <Box>
+                {courseInputList.map(courseInputList => <Box key={courseInputList}> {courseInputList} </Box>)} 
+            </Box>
                 <Center><IconButton
                         size='lg'
                         variant="solid"
