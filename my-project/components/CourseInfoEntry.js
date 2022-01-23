@@ -1,6 +1,4 @@
 import { Center, Box, VStack, HStack, Heading, Input, Button } from 'native-base';
-import { Text } from 'react-native';
-import { useState } from 'react';
 
 export default function CourseInfoEntry({courseSubject, courseNumber, courseDate}) {
 

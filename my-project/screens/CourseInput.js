@@ -21,7 +21,12 @@ export default function CourseInput({ navigation }) {
 
     let [courseInput, setCourseInput] = useState("");
     let [classes, setClasses] = useState({});
-    let [currentClass, setCurrentClass] = useState("")
+    let [currentClass, setCurrentClass] = useState("");
+
+    const handleSubmitCourse = () => {
+        //TODO: save course information
+        navigation.navigate('Map');
+    }
 
     /*fetch('https://api.purdue.io/odata/Courses?$expand=Classes($filter=Term/Code eq \'202220\';$expand=Sections($expand=Meetings))&$filter=Subject/Abbreviation eq \'CS\' and Number eq \'18000\'').then(response =>{
         return response.json();
@@ -56,7 +61,13 @@ export default function CourseInput({ navigation }) {
         </Select> */}
         
         <ScrollView>
-            <CourseForm complete={true} courseSubject={"CS"} courseNumber={"18000"} courseDate={"MWF 11:30 AM"}/>
+            <CourseForm 
+                complete={true} 
+                courseSubject={"CS"}
+                courseNumber={"18000"} 
+                courseDate={"MWF 11:30 AM"}
+                courseLocation={"WALC 1020"}
+                courseCRN={329122}/>
             <CourseForm />
             <Center>
                 <IconButton
@@ -88,7 +99,7 @@ export default function CourseInput({ navigation }) {
                         bg: 'dark.200',
                         borderRadius: '4'
                     }}
-                    onPress={() => navigation.navigate('Map')}
+                    onPress={handleSubmitCourse}
                     >
                         Submit Courses
                 </Button>
