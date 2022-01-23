@@ -1,15 +1,7 @@
-import { Box, Select, Button, Center, VStack } from 'native-base';
+import { Box, Select, Button } from 'native-base';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Image, Dimensions } from 'react-native';
+import { StyleSheet, Image, Dimensions, View } from 'react-native';
 const { width, height } = Dimensions.get('window');
-
-const stylesLogo = StyleSheet.create({
-    logo: {
-      width: width/1.4,
-      marginTop: -height/5,
-      marginBottom: -height/7
-    },
-  });
 
 export default function Home({ navigation }) {
     let [university, setUniversity] = useState("");
@@ -26,62 +18,40 @@ export default function Home({ navigation }) {
     }, [university])
 
     return (
-        <Center flex={1} px="3">
-            <Box
-            maxW="lg"
-            h="85%"
-            rounded="lg"
-            overflow="hidden"
-            borderColor="coolGray.200"
-            shadow={3}
-            borderWidth="1"
-            _dark={{
-                borderColor: "coolGray.600",
-                backgroundColor: "gray.700",
-            }}
-            _light={{
-                backgroundColor: "gray.50",
-            }}
+        <View style={{ flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'stretch', padding: 20, height: '100%'}}>
+            <Image
+                style={{ width: width/1.4, height: height/5, alignSelf: 'center' }}
+                resizeMode='contain'
+                source={require('../assets/openspace.png')}
+            />
+            <Box _text={{fontSize: "md", textAlign: "center"}}>Use openspace to find the best open study spaces on campus! Enter your courses to find optimal study spots for the downtime you have between lecture.</Box>
+            <Select
+                selectedValue={university}
+                size="xl"
+                accessibilityLabel="Choose University"
+                placeholder="Choose University"
+                onValueChange={(itemValue) => setUniversity(itemValue)}
             >
-                <VStack space={"lg"} alignItems="center">
-                    <Image
-                        style={stylesLogo.logo}
-                        resizeMode='contain'
-                        source={require('../assets/openspace.png')}
-                    />
-                    <Box _text={{fontSize: "md", textAlign: "center"}} m="4">Use openspace to find the best open study spaces on campus! Enter your courses to find optimal study spots for the downtime you have between lecture.</Box>
-                    <Select
-                        selectedValue={university}
-                        width="100%"
-                        size="xl"
-                        minWidth="200"
-                        accessibilityLabel="Choose University"
-                        placeholder="Choose University"
-                        mt={1}
-                        onValueChange={(itemValue) => setUniversity(itemValue)}
-                    >
-                        <Select.Item label="Purdue University" value="pu" />
-                        <Select.Item label="Indiana University" value="iu" />
-                        <Select.Item label="Michigan University" value="mu" />
-                        <Select.Item label="University of Illinois" value="uiuc" />
-                        <Select.Item label="Harvard University" value="hu" />
-                    </Select>
-                        <Button 
-                            size="lg"
-                            bgColor="dark.100"
-                            _hover={{
-                                bg: 'dark.200'
-                            }}
-                            _pressed={{
-                                bg: 'dark.200',
-                                borderRadius: '4'
-                            }}
-                            isDisabled={disabled}
-                            onPress={() => navigation.navigate('Map')}
-                            >Enter Courses</Button>
-                </VStack>
-            </Box>
-        </Center>
+                <Select.Item label="Purdue University" value="pu" />
+                <Select.Item label="Indiana University" value="iu" />
+                <Select.Item label="Michigan University" value="mu" />
+                <Select.Item label="University of Illinois" value="uiuc" />
+                <Select.Item label="Harvard University" value="hu"/>
+            </Select>
+            <Button 
+                size="lg"
+                bgColor="dark.100"
+                _hover={{
+                    bg: 'dark.200'
+                }}
+                _pressed={{
+                    bg: 'dark.200',
+                    borderRadius: '4'
+                }}
+                isDisabled={disabled}
+                onPress={() => navigation.navigate('Course Input')}
+                >Enter Courses</Button>
+        </View>
     );
 }
 
