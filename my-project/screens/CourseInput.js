@@ -2,7 +2,6 @@ import { Center, Select, Button, Input, Box } from 'native-base';
 import { useState } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { CourseForm } from '../components';
-import { Link } from 'react-router-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -17,7 +16,7 @@ const stylesLogo = StyleSheet.create({
     },
   });
 
-export default function CourseInput() {
+export default function CourseInput({ navigation }) {
 
     let [courseInput, setCourseInput] = useState("");
     let [classes, setClasses] = useState({});
@@ -54,29 +53,33 @@ export default function CourseInput() {
             <Select.Item label={c} value="ux" />
         ))} 
         </Select> */}
-        <Button 
-            size="lg"
-            style={{
-                backgroundColor: '#020202',
-            }}
-        >Submit Courses</Button>
-        <ScrollView>
-            <CourseForm />
-            <CourseForm />
-            <CourseForm />
-            <CourseForm />
-        </ScrollView>
         
-        <Link to="/map"><Box>Go to map</Box></Link>
+        <ScrollView>
+            <CourseForm complete={true} courseSubject={"CS"} courseNumber={"18000"} courseDate={"MWF 11:30 AM"}/>
+            <CourseForm />
+            <Center>
+                <Button 
+                    size="lg"
+                    marginBottom="10"
+                    w="75%"
+                    bgColor="dark.100"
+                    _hover={{
+                        bg: 'dark.200'
+                    }}
+                    _pressed={{
+                        bg: 'dark.200',
+                        borderRadius: '4'
+                    }}
+                    onPress={() => navigation.navigate('Map')}
+                >Submit Courses</Button>
+            </Center>
+            
+        </ScrollView>
 
     </Center>
     
   );
 }
-
-/*
-
-*/
 
 const styles = StyleSheet.create({
   container: {

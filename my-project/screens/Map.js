@@ -2,15 +2,15 @@ import * as React from 'react';
 import MapView from 'react-native-maps';
 import { StyleSheet, Text, Dimensions } from 'react-native';
 import { Marker } from 'react-native-maps';
-import { Box, VStack, ZStack, Button, Center, Heading} from 'native-base';
-import { Link } from 'react-router-native';
+import { Box, VStack, ZStack, Button, Heading} from 'native-base';
 import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_API} from '@env'
 import { useAction, useState } from 'react'
 import * as data from '../buildings.json';
 
 
-export default function Map(props) {
+
+export default function Map({universityName}) {
 
   const origin = {latitude: 40.425392066007554, longitude: -86.91506838968994};
   const destination = {latitude: 40.42549824130531, longitude: -86.91324448766233};
@@ -43,9 +43,9 @@ export default function Map(props) {
 
   
 
-    const universityName = props.universityName;
-    const overlayWindowHeight = 250;
+  const overlayWindowHeight = 325;
 
+    
   return (
 
     <ZStack>
@@ -68,8 +68,28 @@ export default function Map(props) {
         origin={origin}
         destination={destination}
         mode={'WALKING'}
-        // arrival_time={}
         apikey={GOOGLE_API}
+        strokeWidth={10}
+        strokeColor="#06b6d4"  //06b6d4
+        onStart={(params) => {
+          console.log(`Started routing between "${params.origin}" and "${params.destination}"`);
+        }}
+        onReady={result => {
+          console.log(`Distance: ${result.distance} km`)
+          console.log(`Duration: ${result.duration} min.`)
+
+          // this.mapView.fitToCoordinates(result.coordinates, {
+          //   edgePadding: {
+          //     right: (width / 20),
+          //     bottom: (height / 20),
+          //     left: (width / 20),
+          //     top: (height / 20),
+          //   }
+          // });
+        }}
+        onError={(errorMessage) => {
+            console.log('GOT AN ERROR');
+        }}
       />
       <Marker coordinate={{ latitude : 40.424175 , longitude : -86.914376 }} />
       </MapView>
@@ -77,20 +97,6 @@ export default function Map(props) {
             <VStack space="3" alignItems="center" justifyContent="center">
                 <Heading m="5">Purdue University</Heading>
                 <Text size="lg" m="20" style={{textAlign: "center"}}>See above for a map detailing the study locations nearest to your classes</Text>
-                
-                    <Button size="lg"
-                            maxW="40%" size="lg"
-                            bgColor="dark.100"
-                            _hover={{
-                                bg: 'dark.200'
-                            }}
-                            _pressed={{
-                                bg: 'dark.200',
-                                borderRadius: '4'
-                            }}>Back</Button>
-                <Box>
-                    <Link to="/"><Text>Go back</Text></Link>
-                </Box>
             </VStack>
         </Box>
     </ZStack>
