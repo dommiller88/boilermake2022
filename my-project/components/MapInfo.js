@@ -14,8 +14,67 @@ import {
 export default function MapInfo({buildingInfoArray, typeState}) {
 
     const Banners = (
-        <Box>
-            Hi guys
+        <Box width="100%">
+            <Box
+            width="100%"
+            marginBottom="0"
+            bg="primary.500"
+            p="4"
+            shadow={2}
+            _text={{
+                fontSize: "md",
+                fontWeight: "bold",
+                color: "white",
+            }}
+            >
+            This is a Box
+            
+            </Box>
+            <Box
+            width="100%"
+            marginBottom="0"
+            bg="primary.500"
+            p="4"
+            shadow={2}
+            _text={{
+                fontSize: "md",
+                fontWeight: "bold",
+                color: "white",
+            }}
+            >
+            This is a Box
+            
+            </Box>
+            <Box
+            width="100%"
+            marginBottom="0"
+            bg="primary.500"
+            p="4"
+            shadow={2}
+            _text={{
+                fontSize: "md",
+                fontWeight: "bold",
+                color: "white",
+            }}
+            >
+            This is a Box
+            
+            </Box>
+            <Box
+            width="100%"
+            marginBottom="0"
+            bg="primary.500"
+            p="4"
+            shadow={2}
+            _text={{
+                fontSize: "md",
+                fontWeight: "bold",
+                color: "white",
+            }}
+            >
+            This is a Box
+            
+            </Box>
         </Box>
     );
 
@@ -83,8 +142,8 @@ export default function MapInfo({buildingInfoArray, typeState}) {
         )
     }
 
-    return (
-        Info
-        
-    );
+
+
+   
+
 }
