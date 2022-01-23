@@ -16,7 +16,7 @@ const stylesLogo = StyleSheet.create({
     },
   });
 
-export default function CourseInput() {
+export default function CourseInput({ navigation }) {
 
     let [courseInput, setCourseInput] = useState("");
     let [classes, setClasses] = useState({});
@@ -72,6 +72,7 @@ export default function CourseInput() {
                         bg: 'dark.200',
                         borderRadius: '4'
                     }}
+                    onPress={() => navigation.navigate('Map')}
                 >Submit Courses</Button>
             </Center>
             
