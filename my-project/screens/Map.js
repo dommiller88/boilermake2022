@@ -6,12 +6,42 @@ import { Box, VStack, ZStack, Button, Center, Heading} from 'native-base';
 import { Link } from 'react-router-native';
 import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_API} from '@env'
+import { useAction, useState } from 'react'
+import * as data from '../buildings.json';
 
 
 export default function Map(props) {
 
   const origin = {latitude: 40.425392066007554, longitude: -86.91506838968994};
   const destination = {latitude: 40.42549824130531, longitude: -86.91324448766233};
+  let study = [];
+  let meal = [];
+  let [studyState, setStudyState] = useState([]);
+  let [mealState, setMealState] = useState([]);
+
+  useAction(() => {
+    for (let i = 0; i < data.Study.length; i++) {
+      const toAppend = {
+        "latitude": data.Study[i].location[0],
+        "longitude": data.Study[i].location[1]
+      }
+      study.concat(toAppend);
+    }
+    setStudyState(study);
+
+    for (let i = 0; i < data.Meal.length; i++) {
+      const toAppend = {
+        "latitude": data.Meal[i].location[0],
+        "longitude": data.Meal[i].location[1]
+      }
+      meal.concat(toAppend);
+    }
+    setMealState(meal);
+
+  }, []);
+
+
+  
 
     const universityName = props.universityName;
     const overlayWindowHeight = 250;
@@ -28,6 +58,12 @@ export default function Map(props) {
           longitudeDelta: 0.015,
       }}
       > 
+      {study && study.map(stud => (
+        <Marker 
+          coordinate={{ latitude : stud.Location[0], longitude: stud.Location[1] }}
+          name={stud.Name}
+        />
+      ))}
       <MapViewDirections
         origin={origin}
         destination={destination}
