@@ -58,8 +58,6 @@ export default function CourseInput({ navigation }) {
         <ScrollView>
             <CourseForm complete={true} courseSubject={"CS"} courseNumber={"18000"} courseDate={"MWF 11:30 AM"}/>
             <CourseForm />
-            <CourseForm />
-            <CourseForm />
             <Center>
                 <IconButton
                     size='lg'
