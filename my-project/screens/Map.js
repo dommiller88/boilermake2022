@@ -6,7 +6,6 @@ import { Box, VStack, ZStack, Button, Heading} from 'native-base';
 import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_API} from '@env'
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 
 
@@ -829,7 +828,6 @@ export default function Map({universityName}) {
   }
 
 
-  let study = [];
   let meal = [];
   let study = [
 {
