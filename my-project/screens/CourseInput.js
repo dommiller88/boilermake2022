@@ -1,7 +1,7 @@
 import { Center, Select, Button, Input, Box } from 'native-base';
 import { useState } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
-import { CourseForm } from '../components';
+import { CourseForm, CourseSelectModal } from '../components';
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,6 +21,7 @@ export default function CourseInput({ navigation }) {
     let [courseInput, setCourseInput] = useState("");
     let [classes, setClasses] = useState({});
     let [currentClass, setCurrentClass] = useState("")
+    let [showModal, setShowModal] = useState(true);
 
     /*fetch('https://api.purdue.io/odata/Courses?$expand=Classes($filter=Term/Code eq \'202220\';$expand=Sections($expand=Meetings))&$filter=Subject/Abbreviation eq \'CS\' and Number eq \'18000\'').then(response =>{
         return response.json();
@@ -72,6 +73,7 @@ export default function CourseInput({ navigation }) {
                     }}
                     onPress={() => navigation.navigate('Map')}
                 >Submit Courses</Button>
+                <CourseSelectModal showModal={showModal} setShowModal={setShowModal} courseName={'CS'} courseNumber={'CS,180'} />
             </Center>
             
         </ScrollView>
