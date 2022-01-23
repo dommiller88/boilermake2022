@@ -77,7 +77,7 @@ export default function Home({ navigation }) {
                                 borderRadius: '4'
                             }}
                             isDisabled={disabled}
-                            onPress={() => navigation.navigate('Map')}
+                            onPress={() => navigation.navigate('CourseInput')}
                             >Enter Courses</Button>
                 </VStack>
             </Box>

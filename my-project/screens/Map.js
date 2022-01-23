@@ -8,18 +8,14 @@ import {GOOGLE_API} from '@env'
 
 
 
-export default function Map(props) {
+export default function Map({universityName}) {
 
   const origin = {latitude: 40.425392066007554, longitude: -86.91506838968994};
   const destination = {latitude: 40.42549824130531, longitude: -86.91324448766233};
 
-
-
-  const universityName = props.universityName;
   const overlayWindowHeight = 325;
 
     
-
   return (
 
     <ZStack>
@@ -65,20 +61,6 @@ export default function Map(props) {
             <VStack space="3" alignItems="center" justifyContent="center">
                 <Heading m="5">Purdue University</Heading>
                 <Text size="lg" m="20" style={{textAlign: "center"}}>See above for a map detailing the study locations nearest to your classes</Text>
-                
-                    <Button size="lg"
-                            maxW="40%" size="lg"
-                            bgColor="dark.100"
-                            _hover={{
-                                bg: 'dark.200'
-                            }}
-                            _pressed={{
-                                bg: 'dark.200',
-                                borderRadius: '4'
-                            }}>Back</Button>
-                <Box>
-                    <Text>Go back</Text>
-                </Box>
             </VStack>
         </Box>
     </ZStack>
