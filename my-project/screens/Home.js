@@ -1,17 +1,16 @@
 import { Box, Select, Button } from 'native-base';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Image, Dimensions, View } from 'react-native';
+import { Image, Dimensions, View } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 export default function Home({ navigation }) {
     let [university, setUniversity] = useState("");
     let [disabled, setDisabled] = useState(true);
-    let doRedirect = false;
 
     // Allow button to be used only when
     // the user has selected a university
     useEffect(() => {
-      console.log(university);
+      //console.log(university); (For testing purposes only)
       if (university != "") {
         setDisabled(false);
       }

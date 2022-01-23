@@ -1,6 +1,4 @@
 import { Center, Box, VStack, HStack, Heading, Input, Button } from 'native-base';
-import { Text } from 'react-native';
-import { useState } from 'react';
 
 export default function CourseInfoEntry({courseSubject, courseNumber, courseDate}) {
 
@@ -54,7 +52,8 @@ export default function CourseInfoEntry({courseSubject, courseNumber, courseDate
                     w={{
                         base: "90%",
                         md: "25%",
-                    }}></Input>
+                    }}>
+                </Input>
                 <Button 
                     size="lg"
                     mx="3"

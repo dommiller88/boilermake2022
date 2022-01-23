@@ -1,11 +1,13 @@
 import { setStatusBarNetworkActivityIndicatorVisible } from 'expo-status-bar';
 import { Box, Center, VStack, HStack, Input, Heading, Button} from 'native-base';
 import { useState } from 'react';
+import { Text } from 'react-native';
 
-export default function CourseInfoComplete({ edit, courseSubject, courseNumber, courseDate}) {
+export default function CourseInfoComplete({ courseSubject, courseNumber, courseDate, courseLocation, courseCRN}) {
 
     const [isEdit, setIsEdit] = useState(false);
 
+    // Subcomponent that allows the user to edit the information
     const EditCourseInfo = () => {
         return (
             <Center flex={1}>
@@ -80,13 +82,14 @@ export default function CourseInfoComplete({ edit, courseSubject, courseNumber, 
         );
     }
 
+    // Subcomponent that allows the user to see selected class
     const CompleteCourseInfo = () => {
         return (
             <Center flex={1}>
             <Box
             mx={10}
             w="320"
-            h="160"
+            h="170"
             rounded="lg"
             overflow="hidden"
             borderColor="coolGray.200"
@@ -104,7 +107,13 @@ export default function CourseInfoComplete({ edit, courseSubject, courseNumber, 
             >
                 <VStack space="2">
                     <Heading>{courseSubject + " " + courseNumber}</Heading>
-                    <Box mx="3">{courseDate}</Box>
+                    <HStack space="2" mx="3">
+                        <Text mx="3">{courseDate}</Text>
+                        <Text>CRN: {courseCRN}</Text>
+                        
+                    </HStack>
+                    <Box mx="3"><Text>Location: {courseLocation}</Text></Box>
+                    
                     <Button 
                         size="lg"
                         mx="3"
