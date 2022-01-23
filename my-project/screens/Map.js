@@ -16,7 +16,7 @@ export default function Map(props) {
 
 
   const universityName = props.universityName;
-  const overlayWindowHeight = 250;
+  const overlayWindowHeight = 325;
 
     
 
