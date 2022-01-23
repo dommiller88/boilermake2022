@@ -1,6 +1,7 @@
 import { Center, Select, Button, Input, Box, IconButton } from 'native-base';
 import { useState } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { CourseForm, CourseSelectModal } from '../components';
 import { CourseForm } from '../components';
 import { MaterialIcons } from "@expo/vector-icons"
 
@@ -21,6 +22,8 @@ export default function CourseInput({ navigation }) {
 
     let [courseInput, setCourseInput] = useState("");
     let [classes, setClasses] = useState({});
+    let [currentClass, setCurrentClass] = useState("")
+    let [showModal, setShowModal] = useState(true);
     let [currentClass, setCurrentClass] = useState("");
 
     const handleSubmitCourse = () => {
@@ -99,10 +102,9 @@ export default function CourseInput({ navigation }) {
                         bg: 'dark.200',
                         borderRadius: '4'
                     }}
-                    onPress={handleSubmitCourse}
-                    >
-                        Submit Courses
-                </Button>
+                    onPress={() => navigation.navigate('Map')}
+                >Submit Courses</Button>
+                <CourseSelectModal showModal={showModal} setShowModal={setShowModal} courseName={'CS'} courseNumber={'CS,180'} />
             </Center>
             
         </ScrollView>
