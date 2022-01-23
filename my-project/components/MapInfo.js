@@ -27,7 +27,7 @@ export default function MapInfo({buildingInfoArray, typeState}) {
                 color: "white",
             }}
             >
-            This is a Box
+            {/* This is a Box */}
             
             </Box>
             <Box
@@ -42,7 +42,7 @@ export default function MapInfo({buildingInfoArray, typeState}) {
                 color: "white",
             }}
             >
-            This is a Box
+            {/* This is a Box */}
             
             </Box>
             <Box
@@ -57,7 +57,7 @@ export default function MapInfo({buildingInfoArray, typeState}) {
                 color: "white",
             }}
             >
-            This is a Box
+            {/* This is a Box */}
             
             </Box>
             <Box
@@ -72,7 +72,7 @@ export default function MapInfo({buildingInfoArray, typeState}) {
                 color: "white",
             }}
             >
-            This is a Box
+            {/* This is a Box */}
             
             </Box>
         </Box>
@@ -101,7 +101,7 @@ export default function MapInfo({buildingInfoArray, typeState}) {
             <AspectRatio w="50%" ratio={16/ 9}>
             <Image
                 source={{
-                uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+                uri: buildingInfoArray[2],
                 }}
                 alt="image"
             />
@@ -110,12 +110,11 @@ export default function MapInfo({buildingInfoArray, typeState}) {
         <Stack p="4" space={3}>
             <Stack space={2}>
             <Heading size="md" ml="-1">
-                The Garden City
+                {buildingInfoArray[0]}
             </Heading>
             </Stack>
             <Text fontWeight="400">
-            Bengaluru (also called Bangalore) is the center of India's high-tech
-            industry. The city is also known for its parks and nightlife.
+            {buildingInfoArray[1]}
             </Text>
             <HStack alignItems="center" space={4} justifyContent="space-between">
             <HStack alignItems="center">
@@ -126,12 +125,13 @@ export default function MapInfo({buildingInfoArray, typeState}) {
 
     )
 
-    if (state == 'banners') {
+    if (typeState == 'banners') {
         return (
             Banners
         );
     }
-    else if (state == 'info') {
+    else if (typeState == 'info') {
+        console.log("info")
         return (
             Info
         );

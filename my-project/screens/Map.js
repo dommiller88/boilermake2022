@@ -5,7 +5,7 @@ import { Marker } from 'react-native-maps';
 import { Box, VStack, ZStack, Button, Heading} from 'native-base';
 import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_API} from '@env'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { MapInfo } from '../components';
 import axios from 'axios';
 
@@ -828,6 +828,8 @@ export default function Map({universityName}) {
           }
       ]
   }
+  let [infoState, setInfoState] = useState('');
+  let [infoArray, setInfoArray] = useState(["Beering", "BRNG", "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"]);
   let [regionState, setRegionState] = useState({
       latitude: 40.424175,
       longitude: -86.914376,
@@ -886,6 +888,10 @@ export default function Map({universityName}) {
               latitudeDelta: 0.002,
               longitudeDelta: 0.002,
             })
+            if (infoState != 'info') {
+              setInfoState('info');
+            }
+            
           }}
         />
       ))}
@@ -901,6 +907,9 @@ export default function Map({universityName}) {
               latitudeDelta: 0.005,
               longitudeDelta: 0.005,
             })
+            if (infoState != 'info') {
+              setInfoState('info')
+            }
           }}
         />
       ))}
@@ -940,7 +949,7 @@ export default function Map({universityName}) {
         <Box mt={styles.map.height - overlayWindowHeight} bg="gray.50" borderColor="coolGray.200" width="full" height={overlayWindowHeight} rounded="lg" shadow={3}>
             <VStack space="3" alignItems="center" justifyContent="center">
                 {/* <Heading m="5">Purdue University</Heading> */}
-                <MapInfo />
+                <MapInfo buildingInfoArray={infoArray} typeState={infoState}/>
             </VStack>
         </Box>
     </ZStack>
