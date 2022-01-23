@@ -1037,8 +1037,8 @@ export default function Map({universityName}) {
       </MapView>
         <Box mt={styles.map.height - overlayWindowHeight} bg="gray.50" borderColor="coolGray.200" width="full" height={overlayWindowHeight} rounded="lg" shadow={3}>
             <VStack space="3" alignItems="center" justifyContent="center">
-                <Heading m="5">Purdue University</Heading>
-                {/* <MapInfo /> */}
+                {/* <Heading m="5">Purdue University</Heading> */}
+                <MapInfo />
             </VStack>
         </Box>
     </ZStack>
