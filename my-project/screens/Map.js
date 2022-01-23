@@ -8,13 +8,18 @@ import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_API} from '@env'
 
 
+
 export default function Map(props) {
 
   const origin = {latitude: 40.425392066007554, longitude: -86.91506838968994};
   const destination = {latitude: 40.42549824130531, longitude: -86.91324448766233};
 
-    const universityName = props.universityName;
-    const overlayWindowHeight = 250;
+
+
+  const universityName = props.universityName;
+  const overlayWindowHeight = 250;
+
+    
 
   return (
 
@@ -32,8 +37,28 @@ export default function Map(props) {
         origin={origin}
         destination={destination}
         mode={'WALKING'}
-        // arrival_time={}
         apikey={GOOGLE_API}
+        strokeWidth={10}
+        strokeColor="#06b6d4"  //06b6d4
+        onStart={(params) => {
+          console.log(`Started routing between "${params.origin}" and "${params.destination}"`);
+        }}
+        onReady={result => {
+          console.log(`Distance: ${result.distance} km`)
+          console.log(`Duration: ${result.duration} min.`)
+
+          // this.mapView.fitToCoordinates(result.coordinates, {
+          //   edgePadding: {
+          //     right: (width / 20),
+          //     bottom: (height / 20),
+          //     left: (width / 20),
+          //     top: (height / 20),
+          //   }
+          // });
+        }}
+        onError={(errorMessage) => {
+            console.log('GOT AN ERROR');
+        }}
       />
       <Marker coordinate={{ latitude : 40.424175 , longitude : -86.914376 }} />
       </MapView>

@@ -10,9 +10,9 @@ export default function App() {
         <StatusBar />
         <NativeRouter>
             <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/courseinput" element={<CourseInput />} />
-                <Route path="/map" element={<Map />} />
+                {/* <Route exact path="/" element={<Home />} />
+                <Route exact path="/courseinput" element={<CourseInput />} /> */}
+                <Route path="/" element={<Map />} />
                 <Route path="*" component={<NotFound />} />
             </Routes>
         </NativeRouter>
