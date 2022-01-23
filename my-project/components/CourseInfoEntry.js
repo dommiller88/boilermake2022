@@ -4,9 +4,9 @@ import { useState } from 'react';
 export default function CourseInfoEntry({changeComplete}) {
 
     // send entered data to form
-    const handleSubmit = () => {
-        changeComplete();
-    }
+    // const handleSubmit = () => {
+    //     changeComplete();
+    // }
 
     let [inputSubject, setInputSubject] = useState("");
     let [inputCourse, setInputCourse] = useState("");

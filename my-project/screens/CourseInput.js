@@ -2,7 +2,6 @@ import { Center, Select, Button, Input, Box, IconButton } from 'native-base';
 import { useState, useEffect } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { CourseForm, CourseSelectModal } from '../components';
-import { CourseForm } from '../components';
 import { MaterialIcons } from "@expo/vector-icons"
 const { width, height } = Dimensions.get('window');
 
@@ -14,7 +13,13 @@ export default function CourseInput({ navigation }) {
     //let [currentClass, setCurrentClass] = useState("");
 
     const addNewEntry = () => {
-        
+        let curList = courseInputList;
+        curList.push(            
+            <CourseForm 
+            />
+        );
+        console.log(curList);
+        setCourseInputList(curList);
     }
 
     // Submit courses, then go to next page
@@ -58,25 +63,6 @@ export default function CourseInput({ navigation }) {
 
         // else print out list of classes
 
-        // Add the plus button at the bottom
-        outputList.push(<Center><IconButton
-            size='lg'
-            variant="solid"
-            bgColor="dark.100"
-            _hover={{
-                bg: 'dark.200'
-            }}
-            _pressed={{
-                bg: 'dark.200'
-            }}
-            _icon={{
-                as: MaterialIcons,
-                name: "add",
-            }}
-            marginBottom="10"
-            borderRadius="full"
-            onPress={addNewEntry}
-        /></Center>);
 
         //console.log(outputList);
 
@@ -86,7 +72,27 @@ export default function CourseInput({ navigation }) {
     return (
         <Center flex={1} px="1">
             <ScrollView>
-                {courseInputList}
+            <div>
+                {courseInputList.map(courseInputList => <div key={courseInputList}> {courseInputList} </div>)} 
+            </div>
+                <Center><IconButton
+                        size='lg'
+                        variant="solid"
+                        bgColor="dark.100"
+                        _hover={{
+                            bg: 'dark.200'
+                        }}
+                        _pressed={{
+                            bg: 'dark.200'
+                        }}
+                        _icon={{
+                            as: MaterialIcons,
+                            name: "add",
+                        }}
+                        marginBottom="10"
+                        borderRadius="full"
+                        onPress={() => addNewEntry()}
+                /></Center>
                 <Center>                    
                     <Button 
                         size="lg"
