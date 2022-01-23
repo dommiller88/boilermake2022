@@ -39,6 +39,10 @@ export default function Map(props) {
         apikey={GOOGLE_API}
         strokeWidth={10}
         strokeColor="#06b6d4"  //06b6d4
+        waypoints={[
+          {latitude: 40.42815433733094, longitude: -86.91297811468934},
+          {latitude: 40.42761166987847, longitude: -86.92615554230238},
+        ]}
         onStart={(params) => {
           console.log(`Started routing between "${params.origin}" and "${params.destination}"`);
         }}
