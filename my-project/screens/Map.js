@@ -6,6 +6,7 @@ import { Box, VStack, ZStack, Button, Heading} from 'native-base';
 import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_API} from '@env'
 import { useEffect, useState } from 'react';
+import { MapInfo } from '../components';
 import axios from 'axios';
 
 
@@ -827,9 +828,14 @@ export default function Map({universityName}) {
           }
       ]
   }
+  let [regionState, setRegionState] = useState({
+      latitude: 40.424175,
+      longitude: -86.914376,
+      latitudeDelta: 0.015,
+      longitudeDelta: 0.015,
+  });
 
 
-  let study = [];
   let meal = [];
   let study = [
 {
@@ -965,23 +971,35 @@ export default function Map({universityName}) {
     <ZStack>
         <MapView 
         style={styles.map} 
-        initialRegion={{
-          latitude: 40.424175,
-          longitude: -86.914376,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.015,
-      }}
+        region={regionState}
       > 
       {info.Study && info.Study.map(stud => (
         <Marker 
           coordinate={{ latitude : stud.Location[0], longitude: stud.Location[1] }}
           name={stud.Name}
+          onPress={() => {
+            setRegionState({
+              latitude: stud.Location[0] - 0.0005,
+              longitude: stud.Location[1],
+              latitudeDelta: 0.002,
+              longitudeDelta: 0.002,
+            })
+          }}
         />
       ))}
       {info.Meal && info.Meal.map(stud => (
         <Marker 
           coordinate={{ latitude : stud.Location[0], longitude: stud.Location[1] }}
           name={stud.Name}
+          onPress={() => {
+            console.log(`good`);
+            setRegionState({
+              latitude: stud.Location[0],
+              longitude: stud.Location[1],
+              latitudeDelta: 0.005,
+              longitudeDelta: 0.005,
+            })
+          }}
         />
       ))}
       <MapViewDirections
@@ -1020,7 +1038,7 @@ export default function Map({universityName}) {
         <Box mt={styles.map.height - overlayWindowHeight} bg="gray.50" borderColor="coolGray.200" width="full" height={overlayWindowHeight} rounded="lg" shadow={3}>
             <VStack space="3" alignItems="center" justifyContent="center">
                 <Heading m="5">Purdue University</Heading>
-                <Text size="lg" m="20" style={{textAlign: "center"}}>See above for a map detailing the study locations nearest to your classes</Text>
+                {/* <MapInfo /> */}
             </VStack>
         </Box>
     </ZStack>
