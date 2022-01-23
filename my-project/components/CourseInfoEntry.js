@@ -1,13 +1,19 @@
 import { Center, Box, VStack, HStack, Heading, Input, Button } from 'native-base';
+import { useState } from 'react';
 
-export default function CourseInfoEntry({courseSubject, courseNumber, courseDate}) {
+export default function CourseInfoEntry({changeComplete}) {
+
+    // send entered data to form
+    const handleSubmit = () => {
+        changeComplete();
+    }
 
     return (
         <Center flex={1}>
             <Box
             mx={10}
             w="320"
-            h="250"
+            h="180"
             rounded="lg"
             overflow="hidden"
             borderColor="coolGray.200"
@@ -27,6 +33,7 @@ export default function CourseInfoEntry({courseSubject, courseNumber, courseDate
                     <Heading>Enter Course Info</Heading>
                     <HStack>
                         <Input
+                            id="subject"
                             size="xl" 
                             mx="3"
                             placeholder="CS"
@@ -35,6 +42,7 @@ export default function CourseInfoEntry({courseSubject, courseNumber, courseDate
                                 md: "25%",
                             }}></Input>
                         <Input
+                            id="number"
                             size="xl" 
                             mx="3"
                             placeholder="18000"
@@ -43,17 +51,6 @@ export default function CourseInfoEntry({courseSubject, courseNumber, courseDate
                                 md: "25%",
                             }}></Input>
                     </HStack>
-                
-                <Center p="0.5">or</Center>
-                <Input
-                    size="xl" 
-                    mx="3"
-                    placeholder="CRN"
-                    w={{
-                        base: "90%",
-                        md: "25%",
-                    }}>
-                </Input>
                 <Button 
                     size="lg"
                     mx="3"
@@ -66,7 +63,9 @@ export default function CourseInfoEntry({courseSubject, courseNumber, courseDate
                     _pressed={{
                         bg: 'dark.200',
                         borderRadius: '4'
-                    }}>
+                    }}
+                    onPress={handleSubmit}
+                    >
                     Submit
                 </Button>
                 </VStack>
