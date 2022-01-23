@@ -19,10 +19,6 @@ const stylesLogo = StyleSheet.create({
 
 export default function CourseInput({ navigation }) {
 
-    let [courseInput, setCourseInput] = useState("");
-    let [classes, setClasses] = useState({});
-    let [currentClass, setCurrentClass] = useState("")
-
     /*fetch('https://api.purdue.io/odata/Courses?$expand=Classes($filter=Term/Code eq \'202220\';$expand=Sections($expand=Meetings))&$filter=Subject/Abbreviation eq \'CS\' and Number eq \'18000\'').then(response =>{
         return response.json();
     }).then(rawdata =>{
