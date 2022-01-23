@@ -1,7 +1,6 @@
 import { Box, Select, Button, Center, VStack } from 'native-base';
 import { useState, useEffect } from 'react';
 import { StyleSheet, Image, Dimensions } from 'react-native';
-import { Link } from "react-router-native";
 const { width, height } = Dimensions.get('window');
 
 const stylesLogo = StyleSheet.create({
@@ -12,7 +11,7 @@ const stylesLogo = StyleSheet.create({
     },
   });
 
-export default function Home() {
+export default function Home({ navigation }) {
     let [university, setUniversity] = useState("");
     let [disabled, setDisabled] = useState(true);
     let doRedirect = false;
@@ -67,7 +66,6 @@ export default function Home() {
                         <Select.Item label="University of Illinois" value="uiuc" />
                         <Select.Item label="Harvard University" value="hu" />
                     </Select>
-                        <Link to="/courseinput">
                         <Button 
                             size="lg"
                             bgColor="dark.100"
@@ -79,8 +77,8 @@ export default function Home() {
                                 borderRadius: '4'
                             }}
                             isDisabled={disabled}
+                            onPress={() => navigation.navigate('Map')}
                             >Enter Courses</Button>
-                        </Link>
                 </VStack>
             </Box>
         </Center>

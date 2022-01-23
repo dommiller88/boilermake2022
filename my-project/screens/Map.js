@@ -2,8 +2,7 @@ import * as React from 'react';
 import MapView from 'react-native-maps';
 import { StyleSheet, Text, Dimensions } from 'react-native';
 import { Marker } from 'react-native-maps';
-import { Box, VStack, ZStack, Button, Center, Heading} from 'native-base';
-import { Link } from 'react-router-native';
+import { Box, VStack, ZStack, Button, Heading} from 'native-base';
 import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_API} from '@env'
 
@@ -78,7 +77,7 @@ export default function Map(props) {
                                 borderRadius: '4'
                             }}>Back</Button>
                 <Box>
-                    <Link to="/"><Text>Go back</Text></Link>
+                    <Text>Go back</Text>
                 </Box>
             </VStack>
         </Box>
