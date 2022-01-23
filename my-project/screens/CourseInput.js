@@ -1,6 +1,7 @@
 import { Center, Select, Button, Input, Box, IconButton } from 'native-base';
 import { useState } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { CourseForm, CourseSelectModal } from '../components';
 import { CourseForm } from '../components';
 import { MaterialIcons } from "@expo/vector-icons"
 
@@ -18,6 +19,17 @@ const stylesLogo = StyleSheet.create({
   });
 
 export default function CourseInput({ navigation }) {
+
+    let [courseInput, setCourseInput] = useState("");
+    let [classes, setClasses] = useState({});
+    let [currentClass, setCurrentClass] = useState("")
+    let [showModal, setShowModal] = useState(true);
+    let [currentClass, setCurrentClass] = useState("");
+
+    const handleSubmitCourse = () => {
+        //TODO: save course information
+        navigation.navigate('Map');
+    }
 
     /*fetch('https://api.purdue.io/odata/Courses?$expand=Classes($filter=Term/Code eq \'202220\';$expand=Sections($expand=Meetings))&$filter=Subject/Abbreviation eq \'CS\' and Number eq \'18000\'').then(response =>{
         return response.json();
@@ -52,7 +64,13 @@ export default function CourseInput({ navigation }) {
         </Select> */}
         
         <ScrollView>
-            <CourseForm complete={true} courseSubject={"CS"} courseNumber={"18000"} courseDate={"MWF 11:30 AM"}/>
+            <CourseForm 
+                complete={true} 
+                courseSubject={"CS"}
+                courseNumber={"18000"} 
+                courseDate={"MWF 11:30 AM"}
+                courseLocation={"WALC 1020"}
+                courseCRN={329122}/>
             <CourseForm />
             <Center>
                 <IconButton
@@ -85,9 +103,8 @@ export default function CourseInput({ navigation }) {
                         borderRadius: '4'
                     }}
                     onPress={() => navigation.navigate('Map')}
-                    >
-                        Submit Courses
-                </Button>
+                >Submit Courses</Button>
+                <CourseSelectModal showModal={showModal} setShowModal={setShowModal} courseName={'CS'} courseNumber={'CS,180'} />
             </Center>
             
         </ScrollView>
