@@ -1,7 +1,8 @@
-import { Center, Select, Button, Input, Box } from 'native-base';
+import { Center, Select, Button, Input, Box, IconButton } from 'native-base';
 import { useState } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { CourseForm } from '../components';
+import { MaterialIcons } from "@expo/vector-icons"
 
 const { width, height } = Dimensions.get('window');
 
@@ -60,10 +61,27 @@ export default function CourseInput({ navigation }) {
             <CourseForm />
             <CourseForm />
             <Center>
+                <IconButton
+                    size='lg'
+                    variant="solid"
+                    bgColor="dark.100"
+                    _hover={{
+                        bg: 'dark.200'
+                    }}
+                    _pressed={{
+                        bg: 'dark.200'
+                    }}
+                    _icon={{
+                        as: MaterialIcons,
+                        name: "add",
+                    }}
+                    marginBottom="10"
+                    borderRadius="full"
+                />
                 <Button 
                     size="lg"
                     marginBottom="10"
-                    w="75%"
+                    w="60%"
                     bgColor="dark.100"
                     _hover={{
                         bg: 'dark.200'
@@ -73,7 +91,9 @@ export default function CourseInput({ navigation }) {
                         borderRadius: '4'
                     }}
                     onPress={() => navigation.navigate('Map')}
-                >Submit Courses</Button>
+                    >
+                        Submit Courses
+                </Button>
             </Center>
             
         </ScrollView>

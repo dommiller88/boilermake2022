@@ -54,7 +54,8 @@ export default function CourseInfoEntry(props) {
                     w={{
                         base: "90%",
                         md: "25%",
-                    }}></Input>
+                    }}>
+                </Input>
                 <Button 
                     size="lg"
                     mx="3"
