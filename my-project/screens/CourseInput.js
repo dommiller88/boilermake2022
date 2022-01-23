@@ -2,7 +2,7 @@ import { Center, Select, Button, Input, Box, IconButton } from 'native-base';
 import { useState } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { CourseForm, CourseSelectModal } from '../components';
-import { CourseForm } from '../components';
+// import { CourseForm } from '../components';
 import { MaterialIcons } from "@expo/vector-icons"
 
 const { width, height } = Dimensions.get('window');
@@ -24,7 +24,7 @@ export default function CourseInput({ navigation }) {
     let [classes, setClasses] = useState({});
     let [currentClass, setCurrentClass] = useState("")
     let [showModal, setShowModal] = useState(true);
-    let [currentClass, setCurrentClass] = useState("");
+    // let [currentClass, setCurrentClass] = useState("");
 
     const handleSubmitCourse = () => {
         //TODO: save course information
