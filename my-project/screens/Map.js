@@ -5,12 +5,13 @@ import { Marker } from 'react-native-maps';
 import { Box, VStack, ZStack, Button, Heading} from 'native-base';
 import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_API} from '@env'
-import { useAction, useState } from 'react'
-import * as data from '../buildings.json';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 
-export default function Map({universityName}) {
+export default async function Map({universityName}) {
+  const data = await axios.get('../buildings.json');
 
   const origin = {latitude: 40.425392066007554, longitude: -86.91506838968994};
   const destination = {latitude: 40.42549824130531, longitude: -86.91324448766233};
@@ -19,23 +20,26 @@ export default function Map({universityName}) {
   let [studyState, setStudyState] = useState([]);
   let [mealState, setMealState] = useState([]);
 
-  useAction(() => {
-    for (let i = 0; i < data.Study.length; i++) {
+  const startup = useEffect(() => {
+    console.log("MADE IT");
+    for (let i = 0; i < data.data.Study.length; i++) {
       const toAppend = {
-        "latitude": data.Study[i].location[0],
-        "longitude": data.Study[i].location[1]
+        "latitude": data.data.Study[i].location[0],
+        "longitude": data.data.Study[i].location[1]
       }
       study.concat(toAppend);
     }
+    console.log(study[0]);
     setStudyState(study);
 
     for (let i = 0; i < data.Meal.length; i++) {
       const toAppend = {
-        "latitude": data.Meal[i].location[0],
-        "longitude": data.Meal[i].location[1]
+        "latitude": data.data.Meal[i].location[0],
+        "longitude": data.data.Meal[i].location[1]
       }
       meal.concat(toAppend);
     }
+    console.log(meal[0]);
     setMealState(meal);
 
   }, []);
@@ -58,7 +62,7 @@ export default function Map({universityName}) {
           longitudeDelta: 0.015,
       }}
       > 
-      {study && study.map(stud => (
+      {studyState && studyState.map(stud => (
         <Marker 
           coordinate={{ latitude : stud.Location[0], longitude: stud.Location[1] }}
           name={stud.Name}
