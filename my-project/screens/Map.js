@@ -10,39 +10,130 @@ import axios from 'axios';
 
 
 
-export default async function Map({universityName}) {
-  const data = await axios.get('../buildings.json');
+export default function Map({universityName}) {
 
   const origin = {latitude: 40.425392066007554, longitude: -86.91506838968994};
   const destination = {latitude: 40.42549824130531, longitude: -86.91324448766233};
-  let study = [];
   let meal = [];
-  let [studyState, setStudyState] = useState([]);
-  let [mealState, setMealState] = useState([]);
+  let study = [
+{
+    "Name": "BCC",
+    "Location": [40.428306314470575, -86.91916931398097]
+},
+{
+    "Name": "BCHM",
+    "Location": [40.424147731553745, -86.91648289810344]
+},
+{
+    "Name": "CHAS",
+    "Location": [40.429547270965465, -86.91503554466478]
+},
+{
+    "Name": "CREC",
+    "Location": [40.42963717641218, -86.92141922192212]
+},
+{
+    "Name": "FRNY",
+    "Location": [40.43056056115519, -86.9095824717497]
+},
+{
+    "Name": "HAMP",
+    "Location": [40.43138131563567, -86.91131607860551]
+},
+{
+    "Name": "HIKS",
+    "Location": [40.42491551563692, -86.90944860135812]
+},
+{
+    "Name": "KRAN",
+    "Location": [40.424700177211896, -86.90763800135953]
+},
+{
+    "Name": "KNOY",
+    "Location": [40.428848653054416, -86.9067632717526]
+},
+{
+    "Name": "KRCH",
+    "Location": [40.428586193777114, -86.91614220352476]
+},
+{
+    "Name": "LILY",
+    "Location": [40.42979332695456, -86.91846286587509]
+},
+{
+    "Name": "LWSN",
+    "Location": [40.43797170378416, -86.92030938513383]
+},
+{
+    "Name": "MATH",
+    "Location": [40.4276012610766, -86.91566510603349]
+},
+{
+    "Name": "PHYS",
+    "Location": [40.43110278386614, -86.91290667534265]
+},
+{
+    "Name": "PMU",
+    "Location": [40.426529756970254, -86.91077814466799]
+},
+{
+    "Name": "RHPH",
+    "Location": [40.43092992397061, -86.91663962876373]
+},
+{
+    "Name": "STEW",
+    "Location": [40.42705864418407, -86.91305170245623]
+},
+{
+    "Name": "WALC",
+    "Location": [40.42906401433117, -86.91325586739967]
+},
+{
+    "Name": "HCRN",
+    "Location": [40.428105027572705, -86.9190375219275]
+},
+{
+    "Name": "ARMS",
+    "Location": [40.43245099530367, -86.91424202191783]
+},
+{
+    "Name": "RAWL",
+    "Location": [40.43577357998041, -86.90984178085648]
+},
+{
+    "Name": "BRNG",
+    "Location": [40.4264227749306, -86.91621093672715]
+},
+{
+    "Name": "WTHR",
+    "Location": [40.42815433733094, -86.91297811468934]
+}
 
-  const startup = useEffect(() => {
-    console.log("MADE IT");
-    for (let i = 0; i < data.data.Study.length; i++) {
-      const toAppend = {
-        "latitude": data.data.Study[i].location[0],
-        "longitude": data.data.Study[i].location[1]
-      }
-      study.concat(toAppend);
-    }
-    console.log(study[0]);
-    setStudyState(study);
+];
+  // let [studyState, setStudyState] = useState([]);
+  // let [mealState, setMealState] = useState([]);
 
-    for (let i = 0; i < data.Meal.length; i++) {
-      const toAppend = {
-        "latitude": data.data.Meal[i].location[0],
-        "longitude": data.data.Meal[i].location[1]
-      }
-      meal.concat(toAppend);
-    }
-    console.log(meal[0]);
-    setMealState(meal);
+  // const startup = useEffect( async () => {
+  //   const info = await axios.get('../buildings.json');
+  //   for (let i = 0; i < info.data.Study.length; i++) {
+  //     const toAppend = {
+  //       "latitude": info.data.Study[i].location[0],
+  //       "longitude": info.data.Study[i].location[1]
+  //     }
+  //     study.concat(toAppend);
+  //   }
+  //   setStudyState(study);
 
-  }, []);
+  //   for (let i = 0; i < info.data.Meal.length; i++) {
+  //     const toAppend = {
+  //       "latitude": info.data.Meal[i].location[0],
+  //       "longitude": info.data.Meal[i].location[1]
+  //     }
+  //     meal.concat(toAppend);
+  //   }
+  //   setMealState(meal);
+
+  // }, []);
 
 
   
@@ -62,7 +153,7 @@ export default async function Map({universityName}) {
           longitudeDelta: 0.015,
       }}
       > 
-      {studyState && studyState.map(stud => (
+      {study && study.map(stud => (
         <Marker 
           coordinate={{ latitude : stud.Location[0], longitude: stud.Location[1] }}
           name={stud.Name}
