@@ -2,7 +2,7 @@ import { Center, Box, VStack, HStack, Heading, Input, Button } from 'native-base
 import { Text } from 'react-native';
 import { useState } from 'react';
 
-export default function CourseInfoEntry(props) {
+export default function CourseInfoEntry({courseSubject, courseNumber, courseDate}) {
 
     return (
         <Center flex={1}>
@@ -55,7 +55,19 @@ export default function CourseInfoEntry(props) {
                         base: "90%",
                         md: "25%",
                     }}></Input>
-                <Button size="lg" mx="3" w="90%" marginTop={2}>
+                <Button 
+                    size="lg"
+                    mx="3"
+                    w="90%"
+                    marginTop={2}
+                    bgColor="dark.100"
+                    _hover={{
+                        bg: 'dark.200'
+                    }}
+                    _pressed={{
+                        bg: 'dark.200',
+                        borderRadius: '4'
+                    }}>
                     Submit
                 </Button>
                 </VStack>
